@@ -1,14 +1,3 @@
-/*
- * Create a list that holds all of your cards
- */
-
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -36,3 +25,43 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+function startTimer() {
+     let timer = document.querySelector(".time").innerHTML;
+     let arr = timer.split(":");
+     let hour = arr[0];
+     let min = arr[1];
+     let sec = arr[2];
+
+     if (sec === 59) {
+       if (min === 59) {
+         hour++;
+         min = 0;
+
+         if (hour < 10) {
+           hour = "0" + hour;
+         }
+       }
+       else {
+         min++;
+       }
+       if (min < 10) {
+         min = "0" + min;
+       }
+       sec = 0;
+     }
+     else {
+       sec++;
+       if (sec < 10) {
+         sec = "0" + sec;
+       }
+     }
+
+     //updates the html with time value
+     document.querySelector(".time").innerHTML = hour + ":" + min + ":" + sec;
+     setTimeout(startTimer, 1000);
+}
+
+function resetTimer() {
+  document.querySelector(".time").innerHTML = "00" + ":" + "00" + ":" + "00";
+}
