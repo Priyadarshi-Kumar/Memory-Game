@@ -13,7 +13,7 @@ Go to the below link and enjoy playing.<br />
 
 ## Rules
 
-Press reset to restart.
-Every time you reset, card on deck shuffles.
+Press reset to restart.<br />
+Every time you reset, card on deck shuffles.<br />
 Your star rating reduces as per the number of moves.
 
