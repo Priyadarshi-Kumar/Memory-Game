@@ -1,15 +1,33 @@
-let deck = document.querySelector(".deck");
+// number of cards opened
 let openCards = [];
+
+// count of total matched cards
 let matchedCards = 0;
 let timerFlag = true;
 let moves = 0;
 let restart = document.querySelector(".fa-repeat")
 let starsCount = document.querySelector(".stars");
+let deck = document.querySelector(".deck");
 
 /*
  * Create a list that holds all of your cards
  */
-let cardsArray = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
+let cardsArray = ["fa fa-diamond", 
+"fa fa-paper-plane-o", 
+"fa fa-anchor", 
+"fa fa-bolt", 
+"fa fa-cube", 
+"fa fa-leaf", 
+"fa fa-bicycle", 
+"fa fa-bomb", 
+"fa fa-diamond", 
+"fa fa-paper-plane-o", 
+"fa fa-anchor", 
+"fa fa-bolt", 
+"fa fa-cube", 
+"fa fa-leaf", 
+"fa fa-bicycle", 
+"fa fa-bomb"];
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -35,9 +53,9 @@ restart.addEventListener('click', function(event) {
   matchedCards = 0;
   openCards = [];
   deck.innerHTML = " ";
+  document.querySelector(".moves").innerHTML = 0;
   resetTimer();
   resetStars();
-  document.querySelector(".moves").innerHTML = 0;
   shuffleCards();
 });
 
@@ -90,7 +108,7 @@ function changeStateTimer() {
   }
 }
 
-                    
+// listens to the mouse clicks                   
 deck.addEventListener("click", function(event) {
   let target = event.target;
   if(target.classList.contains("card") && openCards.length < 2) {
@@ -110,13 +128,13 @@ function toggleClass(target) {
   target.classList.toggle("open");
 }
 
+// checks the card similarity in opencards array.
 function matchStatus(){
   if (openCards[0].firstElementChild.className === openCards[1].firstElementChild.className) {
     openCards[0].classList.toggle("match");
     openCards[1].classList.toggle("match");
     openCards = [];
     matchedCards++;
-    console.log(matchedCards);
   } 
   else {
     setTimeout(function() {
@@ -149,6 +167,7 @@ function starRating(){
   }
 }
 
+// resets the number of stars
 function resetStars() {
   starsCount.innerHTML = " ";
   starsCount.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li`;
