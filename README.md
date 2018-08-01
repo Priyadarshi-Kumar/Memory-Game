@@ -6,3 +6,5 @@ This game contains deck of eight cards and Clicking on which reveals the picture
 
 ## How to play
 
+Go to the below link and enjoy playing.
+<a href="https://priyadarshi-kumar.github.io/Memory-Game/">Memory Game</a>
