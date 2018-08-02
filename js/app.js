@@ -162,18 +162,18 @@ function incrementMove() {
   moves++;
   let movesCount = document.querySelector(".moves");
   movesCount.innerHTML = moves;
-  if(moves > 8) {
+  if(moves > 12) {
      starRating();
   }
 }
 
 // display the number of stars as per number moves
 function starRating(){
-  if(moves >= 9 && moves < 12){
+  if(moves >= 12 && moves < 16){
     starsCount.innerHTML = " ";
     starsCount.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
   }
-  if(moves >= 12 ){
+  if(moves >= 16 ){
     starsCount.innerHTML = " ";
     starsCount.innerHTML = `<li><i class="fa fa-star"></i></li>`; 
   }
