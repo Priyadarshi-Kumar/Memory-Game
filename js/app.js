@@ -47,9 +47,6 @@ function shuffle(array) {
 // puts cards on the deck
 shuffleCards();
 
-//starts timer
-startTimer();
-
 // event listener to restart button
 restart.addEventListener('click', function(evt){
   resetGame();
@@ -210,3 +207,5 @@ document.querySelector(".close-modal").addEventListener("click", function(evt){
   modal.classList.toggle("modal-display");
 });
 
+//starts timer
+startTimer();
