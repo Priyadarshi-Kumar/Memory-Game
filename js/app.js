@@ -1,13 +1,13 @@
 
 let openCards = []; // number of cards opened
 let matchedCards = 7; // count of total matched cards
-let timerFlag = true;
-let moves = 0;
-let restart = document.querySelector(".restart");
-let replay = document.querySelector(".replay");
-let starsCount = document.querySelector(".stars");
-let deck = document.querySelector(".deck");
-let modal = document.querySelector("#myModal");
+let timerFlag = true; //timer flag
+let moves = 0; // keeps the count of total moves
+let restart = document.querySelector(".restart"); //restart button selector
+let replay = document.querySelector(".replay"); // modal replay button selector
+let starsCount = document.querySelector(".stars"); //select the stars
+let deck = document.querySelector(".deck"); // deck that holds the card
+let modal = document.querySelector("#myModal"); // modal selector 
 
 /*
  * Create a list that holds all of your cards
