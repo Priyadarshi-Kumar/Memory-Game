@@ -44,18 +44,22 @@ function shuffle(array) {
     return array;
 }
 
+// puts cards on the deck
 shuffleCards();
+
+//starts timer
 startTimer();
 
-// resets the game
-restart.addEventListener('click', function(){
-  //timerFlag = true;
+// event listener to restart button
+restart.addEventListener('click', function(evt){
   resetGame();
 });
 
+
+//reset the game function
 function resetGame() {
   moves = 0;
-  matchedCards = 0;
+  matchedCards = 7;
   openCards = [];
   deck.innerHTML = " ";
   document.querySelector(".moves").innerHTML = 0;
@@ -120,8 +124,8 @@ deck.addEventListener("click", function(event) {
     toggleClass(target);
     openCards.push(target);
     if(openCards.length === 2){
-      matchStatus();
       incrementMove();
+      matchStatus();      
     }
   }
 });
@@ -149,7 +153,7 @@ function matchStatus(){
       toggleClass(openCards[0]);
       toggleClass(openCards[1]);
       openCards = [];
-    }, 500);
+    }, 400);
   }
 }
 
@@ -185,20 +189,24 @@ function resetStars() {
 function myModal() {
   changeStateTimer();
   let totTime = document.querySelector(".timer").innerHTML;
-  let movesTaken = document.querySelector(".moves").innerHTML;
-  document.querySelector(".noOfMoves").innerHTML = `Moves Taken : ${movesTaken}`;
+  document.querySelector(".noOfMoves").innerHTML = `Moves Taken : ${moves}`;
   document.querySelector(".totalStars").innerHTML = `Star Rating : ${document.querySelector(".stars").outerHTML}`;
   document.querySelector(".totalTime").innerHTML = `Time Taken : ${totTime}`;
   modal.classList.toggle("modal-display");
 }
 
+
+// listens to the Modal replay button
 replay.addEventListener("click", function(evt){
+  modal.classList.toggle("modal-display");
   changeStateTimer();
   resetTimer();
   resetGame();
 });
 
-document.querySelector(".close-modal").addEventListener("click", function(){
+//listen to the Modal close button
+document.querySelector(".close-modal").addEventListener("click", function(evt){
+  changeStateTimer();
   modal.classList.toggle("modal-display");
 });
 

@@ -121,6 +121,11 @@ h1 {
 * Modal Styles
 */
 
+.modal {
+   position: absolute;
+   text-align: center;
+}
+
 .modal-hide {
     display: none;
 }
@@ -131,8 +136,10 @@ h1 {
 
 .modal-body li {
     list-style-type: none;
+    display: inline-block;
 }
 
 .totalStars {
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
 }
