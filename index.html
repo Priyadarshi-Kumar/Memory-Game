@@ -36,26 +36,32 @@
         </ul>
     </div>
     
-    <!-- Modal -->
-    <div class="modal fade">
-      <div class="modal-dialog">
+    <!-- The Modal -->
+    <div class="modal-hide" id="myModal">
         <div class="modal-content">
+
+          <!-- Modal Header -->
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Modal title</h4>
+            <h4 class="modal-title">Congratulations..</h4>
           </div>
+
+          <!-- Modal body -->
           <div class="modal-body">
-            <p>One fine body&hellip;</p>
+            <ul>
+                <li class="noOfMoves"></li>
+                <li class="totalStars"></li>
+                <li class="totalTime"></li>
+            </ul>
           </div>
+
+          <!-- Modal footer -->
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button class="replay">Replay</button>
           </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
-
+        </div>
+    </div>
 
     <script src="js/app.js"></script>
 </body>
