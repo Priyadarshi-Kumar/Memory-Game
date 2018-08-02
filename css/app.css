@@ -116,3 +116,23 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+/*
+* Modal Styles
+*/
+
+.modal-hide {
+    display: none;
+}
+
+.modal-display {
+    display: block;
+}
+
+.modal-body li {
+    list-style-type: none;
+}
+
+.totalStars {
+    display: inline-block;
+}
