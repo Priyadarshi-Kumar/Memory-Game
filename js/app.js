@@ -1,6 +1,6 @@
 
 let openCards = []; // number of cards opened
-let matchedCards = 7; // count of total matched cards
+let matchedCards = 0; // count of total matched cards
 let timerFlag = true; //timer flag
 let moves = 0; // keeps the count of total moves
 let restart = document.querySelector(".restart"); //restart button selector
@@ -59,7 +59,7 @@ restart.addEventListener('click', function(evt){
 //reset the game function
 function resetGame() {
   moves = 0;
-  matchedCards = 7;
+  matchedCards = 0;
   openCards = [];
   deck.innerHTML = " ";
   document.querySelector(".moves").innerHTML = 0;
