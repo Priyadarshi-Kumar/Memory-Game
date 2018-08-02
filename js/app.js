@@ -1,13 +1,13 @@
-// number of cards opened
-let openCards = [];
 
-// count of total matched cards
-let matchedCards = 0;
+let openCards = []; // number of cards opened
+let matchedCards = 7; // count of total matched cards
 let timerFlag = true;
 let moves = 0;
-let restart = document.querySelector(".fa-repeat")
+let restart = document.querySelector(".restart");
+let replay = document.querySelector(".replay");
 let starsCount = document.querySelector(".stars");
 let deck = document.querySelector(".deck");
+let modal = document.querySelector("#myModal");
 
 /*
  * Create a list that holds all of your cards
@@ -48,7 +48,12 @@ shuffleCards();
 startTimer();
 
 // resets the game
-restart.addEventListener('click', function(event) {
+restart.addEventListener('click', function(){
+  //timerFlag = true;
+  resetGame();
+});
+
+function resetGame() {
   moves = 0;
   matchedCards = 0;
   openCards = [];
@@ -57,7 +62,7 @@ restart.addEventListener('click', function(event) {
   resetTimer();
   resetStars();
   shuffleCards();
-});
+};
 
 //shuffles the cards and appends to deck
 function shuffleCards() {
@@ -135,6 +140,9 @@ function matchStatus(){
     openCards[1].classList.toggle("match");
     openCards = [];
     matchedCards++;
+    if (matchedCards === 8) {
+      myModal();
+    }
   } 
   else {
     setTimeout(function() {
@@ -150,14 +158,14 @@ function incrementMove() {
   moves++;
   let movesCount = document.querySelector(".moves");
   movesCount.innerHTML = moves;
-  if(moves > 7) {
+  if(moves > 8) {
      starRating();
   }
 }
 
 // display the number of stars as per number moves
 function starRating(){
-  if(moves >= 8 && moves < 12){
+  if(moves >= 9 && moves < 12){
     starsCount.innerHTML = " ";
     starsCount.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
   }
@@ -172,3 +180,25 @@ function resetStars() {
   starsCount.innerHTML = " ";
   starsCount.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li`;
 }
+
+// for displaying modal
+function myModal() {
+  changeStateTimer();
+  let totTime = document.querySelector(".timer").innerHTML;
+  let movesTaken = document.querySelector(".moves").innerHTML;
+  document.querySelector(".noOfMoves").innerHTML = `Moves Taken : ${movesTaken}`;
+  document.querySelector(".totalStars").innerHTML = `Star Rating : ${document.querySelector(".stars").outerHTML}`;
+  document.querySelector(".totalTime").innerHTML = `Time Taken : ${totTime}`;
+  modal.classList.toggle("modal-display");
+}
+
+replay.addEventListener("click", function(evt){
+  changeStateTimer();
+  resetTimer();
+  resetGame();
+});
+
+document.querySelector(".close-modal").addEventListener("click", function(){
+  modal.classList.toggle("modal-display");
+});
+
