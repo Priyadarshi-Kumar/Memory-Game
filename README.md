@@ -17,3 +17,6 @@ Press reset to restart.<br />
 Every time you reset, card on deck shuffles.<br />
 Your star rating reduces as per the number of moves.
 
+## Dependencies
+<a href="https://fontawesome.com">Font Awesome</a>
+<a href="https://fonts.google.com">Google Fonts</a>
